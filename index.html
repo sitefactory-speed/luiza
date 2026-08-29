@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luiza Guerra | Psicóloga — Terapia dos Esquemas</title>
+    <meta name="description" content="Luiza Escórcio Pereira Guerra, psicóloga (CRP-21/07023), atendimento em Terapia dos Esquemas — online e presencial.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           DESIGN SYSTEM & VARIABLES - PREMIUM EDITORIAL WELLNESS
+           ========================================================================== */
+        :root {
+            /* Rich Editorial Palette */
+            --bg-deep-plum: #2a0f19;
+            --bg-wine: #4a1528;
+            --bg-bordeaux: #6b1d3a;
+            
+            --bg-dusty-rose: #b57488;
+            --bg-earthy-rose: #d1a5b2;
+            
+            --bg-sand: #d8cbb9;
+            --bg-warm-cream: #f4ece1;
+            --bg-ivory: #fbf8f3;
+            --bg-taupe: #a39589;
+            
+            --text-dark: #23191c;
+            --text-medium: #54454a;
+            --text-light: #fbf8f3;
+            --text-accent: #b57488;
+            
+            --border-subtle: rgba(107, 29, 58, 0.15);
+            --border-light: rgba(251, 248, 243, 0.15);
+            
+            /* Typography Scale - Large & Impactful */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Jost', sans-serif;
+            
+            --container-width: 1300px;
+            --container-padding: clamp(1.5rem, 6vw, 5rem);
+            --section-spacing: clamp(6rem, 15vw, 12rem);
+            
+            /* Organic Forms & Shadows */
+            --radius-arch: 200px 200px 16px 16px;
+            --radius-organic-1: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            --radius-organic-2: 60% 40% 30% 70% / 50% 60% 40% 50%;
+            
+            --shadow-float: 0 30px 60px -20px rgba(42, 15, 25, 0.25);
+            --shadow-soft: 0 15px 40px -10px rgba(107, 29, 58, 0.08);
+            
+            /* Easing */
+            --ease-editorial: cubic-bezier(0.25, 1, 0.2, 1);
+            --transition-slow: all 0.8s var(--ease-editorial);
+            --transition-med: all 0.5s var(--ease-editorial);
+        }
+
+        /* ==========================================================================
+           RESET & BASE
+           ========================================================================== */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; font-size: 16px; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-ivory);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        ::selection { background-color: var(--bg-dusty-rose); color: var(--text-light); }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-ivory); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-taupe); border-radius: 5px; border: 2px solid var(--bg-ivory); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--bg-bordeaux); }
+
+        /* ==========================================================================
+           TYPOGRAPHY (EDITORIAL SCALE)
+           ========================================================================== */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 500;
+            line-height: 1.1;
+            text-wrap: balance;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            max-width: 65ch;
+            font-weight: 300;
+        }
+
+        a { text-decoration: none; transition: var(--transition-med); }
+
+        /* ==========================================================================
+           LAYOUT & UTILITIES
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            position: relative;
+            z-index: 2;
+        }
+
+        section { padding: var(--section-spacing) 0; position: relative; }
+
+        /* Intersection Observer Classes */
+        .reveal-up {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 1s var(--ease-editorial), transform 1s var(--ease-editorial);
+        }
+        .reveal-scale {
+            opacity: 0; transform: scale(1.05);
+            transition: opacity 1.2s var(--ease-editorial), transform 1.2s var(--ease-editorial);
+        }
+        .reveal-fade {
+            opacity: 0;
+            transition: opacity 1s var(--ease-editorial);
+        }
+        
+        .is-visible { opacity: 1; transform: translate(0) scale(1); }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-up, .reveal-scale, .reveal-fade {
+                transition: none; opacity: 1; transform: none;
+            }
+        }
+
+        /* ==========================================================================
+           BUTTONS & MICRO-INTERACTIONS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 2.5rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-med);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(100%);
+            transition: var(--transition-med);
+            z-index: -1;
+        }
+
+        .btn:hover::after { transform: translateY(0); }
+
+        .btn-primary {
+            background-color: var(--bg-dusty-rose);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--bg-bordeaux);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-float);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-light);
+            border-color: var(--border-light);
+        }
+        
+        .btn-secondary.dark {
+            color: var(--bg-wine);
+            border-color: var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--bg-bordeaux);
+            border-color: var(--bg-bordeaux);
+            color: var(--text-light);
+            transform: translateY(-4px);
+        }
+        
+        .btn-secondary.dark:hover {
+            background-color: var(--bg-wine);
+            color: var(--text-light);
+        }
+
+        /* ==========================================================================
+           HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            transition: var(--transition-slow);
+            padding: 2rem 0;
+            background: transparent;
+        }
+
+        header.scrolled {
+            background: rgba(251, 248, 243, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        /* Modificador para o Hero Escuro inicial */
+        header:not(.scrolled) .logo,
+        header:not(.scrolled) .nav-links a {
+            color: var(--text-light);
+        }
+        
+        header:not(.scrolled) .btn-nav {
+            border-color: var(--border-light);
+            color: var(--text-light);
+        }
+        header:not(.scrolled) .mobile-toggle span { background-color: var(--text-light); }
+
+        .nav-container { display: flex; justify-content: space-between; align-items: center; }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--bg-wine);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links { display: flex; gap: 3rem; align-items: center; }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0; height: 1px;
+            bottom: -6px; left: 0;
+            background-color: currentColor;
+            transition: width 0.4s var(--ease-editorial);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-links .btn-nav {
+            padding: 0.8rem 1.8rem;
+            border: 1px solid var(--border-subtle);
+            border-radius: 40px; /* Pill shape for variation */
+            color: var(--bg-wine);
+        }
+        
+        .nav-links .btn-nav::after { display: none; }
+        .nav-links .btn-nav:hover {
+            background-color: var(--bg-wine);
+            color: var(--text-light) !important;
+            border-color: var(--bg-wine);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            cursor: pointer; width: 34px; height: 24px;
+            position: relative; z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            display: block; width: 100%; height: 2px;
+            background-color: var(--bg-wine);
+            position: absolute; transition: var(--transition-med);
+        }
+
+        .mobile-toggle span:nth-child(1) { top: 0; }
+        .mobile-toggle span:nth-child(2) { top: 11px; }
+        .mobile-toggle span:nth-child(3) { top: 22px; }
+
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg); top: 11px; background-color: var(--bg-wine); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg); top: 11px; background-color: var(--bg-wine); }
+
+        @media (max-width: 1024px) {
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%;
+                width: 100%; height: 100vh;
+                background-color: var(--bg-ivory);
+                flex-direction: column; justify-content: center;
+                gap: 2.5rem; transition: var(--transition-slow);
+                z-index: 1000; opacity: 0;
+            }
+            .nav-links.active { right: 0; opacity: 1; }
+            .nav-links a { font-size: 1.2rem; color: var(--bg-wine) !important; }
+            .nav-links .btn-nav { border-color: var(--bg-wine) !important; }
+            body.menu-open { overflow: hidden; }
+        }
+
+        /* ==========================================================================
+           HERO SECTION - EDITORIAL COVER
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            background-color: var(--bg-deep-plum);
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(181, 116, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(107, 29, 58, 0.4) 0%, transparent 60%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract Organic Background Element */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%; right: -5%;
+            width: 60vw; height: 60vw;
+            background: linear-gradient(135deg, var(--bg-bordeaux) 0%, transparent 80%);
+            border-radius: var(--radius-organic-1);
+            filter: blur(80px);
+            opacity: 0.5;
+            z-index: 0;
+            animation: float 20s ease-in-out infinite alternate;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-right: 4rem;
+        }
+
+        .hero-tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--bg-dusty-rose);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .hero-tagline::before {
+            content: '';
+            width: 40px; height: 1px;
+            background-color: var(--bg-dusty-rose);
+        }
+
+        .hero-content h1 {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p {
+            color: rgba(251, 248, 243, 0.8); /* Off-white text */
+            font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+            margin-bottom: 3.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-actions { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+        /* Editorial Visual Composition */
+        .hero-visual {
+            position: relative;
+            height: 100%;
+            min-height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-visual-bg {
+            position: absolute;
+            width: 85%;
+            aspect-ratio: 0.8;
+            background: linear-gradient(135deg, var(--bg-wine) 0%, var(--bg-deep-plum) 100%);
+            border-radius: var(--radius-arch);
+            border: 1px solid rgba(251, 248, 243, 0.1);
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+            overflow: hidden;
+            right: 0;
+            transform: rotate(3deg);
+            transition: var(--transition-slow);
+        }
+        
+        /* Decorative offset frame */
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            width: 85%;
+            aspect-ratio: 0.8;
+            border: 1px solid var(--bg-dusty-rose);
+            border-radius: var(--radius-arch);
+            right: 20px;
+            top: 20px;
+            transform: rotate(-2deg);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Decorative Abstract shape inside the visual (simulating an art piece) */
+        .hero-visual-bg::after {
+            content: '';
+            position: absolute;
+            top: 20%; left: -20%;
+            width: 140%; height: 140%;
+            background: radial-gradient(circle, rgba(209, 165, 178, 0.2) 0%, transparent 60%);
+            border-radius: 50%;
+            filter: blur(30px);
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-30px, 40px) rotate(15deg); }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 4rem; padding-top: 4rem; }
+            .hero-content { padding-right: 0; text-align: center; }
+            .hero-tagline { justify-content: center; }
+            .hero-tagline::before { display: none; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { min-height: 450px; }
+            .hero-visual-bg { right: auto; transform: none; width: 90%; margin: 0 auto; }
+            .hero-visual::before { display: none; }
+        }
+
+        /* ==========================================================================
+           ABOUT SECTION (SOBRE) - WARM RESPIRO
+           ========================================================================== */
+        .about {
+            background-color: var(--bg-warm-cream);
+            color: var(--text-dark);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        /* Editorial Image Treatment */
+        .about-visual {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            top: -30px; left: -30px;
+            width: 100%; height: 100%;
+            background-color: var(--bg-earthy-rose);
+            border-radius: var(--radius-arch);
+            z-index: -1;
+        }
+
+        .about-photo-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-arch);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .about-photo-wrapper img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.5s var(--ease-editorial), transform 1.5s var(--ease-editorial);
+        }
+
+        .about-photo-wrapper img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .about-photo-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .about-photo-dots .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background-color: var(--bg-taupe);
+            transition: var(--transition-med);
+            cursor: pointer;
+        }
+
+        .about-photo-dots .dot.active {
+            background-color: var(--bg-wine);
+            transform: scale(1.5);
+        }
+
+        .about-content {
+            padding-right: 2rem;
+        }
+
+        .about-content h2 { color: var(--bg-wine); }
+        
+        .crp-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .about-grid { grid-template-columns: 1fr; gap: 4rem; text-align: center; }
+            .about-visual { max-width: 450px; margin: 0 auto; }
+            .about-content { padding-right: 0; }
+        }
+
+        /* ==========================================================================
+           APPROACH SECTION (TERAPIA DOS ESQUEMAS) - EDITORIAL TIMELINE
+           ========================================================================== */
+        .approach {
+            background: linear-gradient(to bottom, var(--bg-ivory) 0%, var(--bg-sand) 100%);
+            position: relative;
+        }
+        
+        /* Decorative Background Text */
+        .approach::before {
+            content: 'Esquemas';
+            position: absolute;
+            top: 5%; left: -5%;
+            font-family: var(--font-heading);
+            font-size: 25vw;
+            color: var(--bg-taupe);
+            opacity: 0.05;
+            z-index: 0;
+            line-height: 1;
+            pointer-events: none;
+            writing-mode: vertical-rl;
+        }
+
+        .approach-header {
+            max-width: 700px;
+            margin-bottom: 6rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .approach-header h2 { color: var(--bg-wine); }
+
+        .approach-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .approach-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 3rem;
+            align-items: start;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-subtle);
+            transition: var(--transition-med);
+        }
+
+        .approach-item:hover {
+            padding-left: 20px; /* Subtle movement on hover */
+            border-top-color: var(--bg-wine);
+        }
+
+        .approach-num {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            font-style: italic;
+            color: var(--bg-dusty-rose);
+            line-height: 0.8;
+            opacity: 0.6;
+        }
+
+        .approach-content { max-width: 600px; }
+        
+        .approach-content h3 {
+            color: var(--bg-wine);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .approach-content p { margin: 0; }
+
+        @media (min-width: 1024px) {
+            .approach-item:nth-child(even) {
+                grid-template-columns: 1fr 120px;
+                text-align: right;
+            }
+            .approach-item:nth-child(even) .approach-num {
+                order: 2; text-align: right;
+            }
+            .approach-item:nth-child(even) .approach-content {
+                order: 1; margin-left: auto;
+            }
+            .approach-item:nth-child(even):hover {
+                padding-left: 0; padding-right: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .approach-item { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+            .approach-num { font-size: 4rem; margin-bottom: -1rem; opacity: 0.3; }
+        }
+
+        /* ==========================================================================
+           SERVICES SECTION (ATENDIMENTO) - DUAL PANELS
+           ========================================================================== */
+        .services {
+            background-color: var(--bg-deep-plum);
+            color: var(--text-light);
+            padding: 8rem 0;
+        }
+
+        .services-header { text-align: center; margin-bottom: 6rem; }
+        .services-header h2 { color: var(--text-light); }
+        .services-header p { color: rgba(251, 248, 243, 0.7); margin: 0 auto; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .service-panel {
+            border-radius: 24px;
+            padding: 5rem 4rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-slow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Panel 1: Earthy Rose */
+        .panel-online {
+            background-color: var(--bg-earthy-rose);
+            color: var(--bg-wine);
+            transform: translateY(-20px); /* Offset design */
+        }
+        
+        /* Panel 2: Bordeaux */
+        .panel-presencial {
+            background-color: var(--bg-bordeaux);
+            color: var(--text-light);
+            transform: translateY(20px);
+        }
+
+        .service-panel:hover {
+            transform: translateY(0) scale(1.02);
+            box-shadow: var(--shadow-float);
+        }
+
+        .service-panel h3 {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        
+        .service-panel .details {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .panel-online p { color: var(--bg-deep-plum); }
+        .panel-presencial p { color: rgba(251, 248, 243, 0.8); }
+
+        @media (max-width: 900px) {
+            .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .service-panel { padding: 4rem 2.5rem; transform: none !important; }
+        }
+
+        /* ==========================================================================
+           FORM SECTION (CONTATO) - STICKY EDITORIAL SPLIT
+           ========================================================================== */
+        .contact {
+            background-color: var(--bg-ivory);
+            padding: var(--section-spacing) 0;
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+        }
+
+        .contact-info {
+            position: sticky;
+            top: 150px;
+            align-self: start;
+        }
+
+        .contact-info h2 { color: var(--bg-wine); margin-bottom: 2rem; }
+
+        /* Premium Form Styles */
+        .form-wrapper {
+            background: var(--bg-warm-cream);
+            padding: 4rem;
+            border-radius: 24px;
+            border: 1px solid rgba(163, 149, 137, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 0;
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid var(--bg-taupe);
+            border-radius: 0;
+            transition: var(--transition-med);
+        }
+
+        .form-control::placeholder { color: rgba(163, 149, 137, 0.5); }
+
+        .form-control:hover { border-bottom-color: var(--bg-bordeaux); }
+
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--bg-wine);
+            border-bottom-width: 2px;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a1528' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 1em;
+        }
+
+        .form-submit-btn { width: 100%; padding: 1.5rem; font-size: 1rem; margin-top: 1rem; }
+        
+        .form-submit-btn:disabled {
+            background-color: var(--bg-taupe);
+            cursor: not-allowed;
+            transform: none; box-shadow: none;
+        }
+
+        #form-status {
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 500;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none;
+            font-size: 1.1rem;
+        }
+        
+        #form-status.active { display: block; animation: fadeUp 0.5s ease; }
+        #form-status.success { background-color: rgba(209, 165, 178, 0.2); color: var(--bg-wine); border: 1px solid var(--bg-dusty-rose); }
+        #form-status.error { background-color: #ffebee; color: #b71c1c; }
+        #form-status.sending { background-color: var(--bg-ivory); color: var(--text-medium); border: 1px dashed var(--bg-taupe); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .contact-info { position: static; text-align: center; }
+            .form-wrapper { padding: 3rem 2rem; }
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--bg-deep-plum);
+            color: var(--text-light);
+            padding: 6rem 0 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative top border inside footer */
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--bg-dusty-rose), transparent);
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-style: italic;
+            color: var(--bg-dusty-rose);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-info {
+            color: rgba(251, 248, 243, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .footer-links a:hover { color: var(--bg-earthy-rose); }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: rgba(251, 248, 243, 0.4);
+            padding-top: 2rem;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo reveal-fade">Luiza Guerra</a>
+            
+            <button class="mobile-toggle reveal-fade" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links reveal-fade">
+                <a href="#sobre">Sobre</a>
+                <a href="#terapia">Terapia dos Esquemas</a>
+                <a href="#atendimento">Atendimento</a>
+                <a href="#contato" class="btn btn-nav">Agendar Consulta</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="inicio" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tagline reveal-up stagger-1">Psicologia Clínica</span>
+                    <h1 class="reveal-up stagger-2">Acolhimento e transformação através da Terapia dos Esquemas</h1>
+                    <p class="reveal-up stagger-3">Um espaço seguro para você compreender seus padrões, curar feridas emocionais e construir uma vida mais leve e autêntica.</p>
+                    <div class="hero-actions reveal-up stagger-4">
+                        <a href="#contato" class="btn btn-primary">Agendar minha consulta</a>
+                        <a href="#terapia" class="btn btn-secondary">Conhecer a abordagem</a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal-scale stagger-2">
+                    <!-- Composição Abstrata Premium mantendo a estrutura pedida -->
+                    <div class="hero-visual-bg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE SECTION -->
+        <section id="sobre" class="about">
+            <div class="container about-grid">
+                
+                <div class="about-visual reveal-scale">
+                    <div class="about-photo-wrapper">
+                        <!-- Imagens originais (placeholders mantidos como no original) -->
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' style='background:%23d8cbb9'%3E%3C/svg%3E" alt="Luiza Guerra" class="active">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' style='background:%23b57488'%3E%3C/svg%3E" alt="Consultório Luiza Guerra">
+                    </div>
+                    <div class="about-photo-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+
+                <div class="about-content reveal-up stagger-1">
+                    <span class="crp-badge">CRP-21/07023</span>
+                    <h2>Olá, eu sou a Luiza.</h2>
+                    <p>Sou psicóloga clínica dedicada a ajudar pessoas a superarem padrões repetitivos e dolorosos através da Terapia dos Esquemas. Acredito que o processo terapêutico é uma jornada de profundo autoconhecimento, conduzida com empatia, técnica e ética.</p>
+                    <p>Meu objetivo é oferecer um ambiente onde você se sinta genuinamente ouvido(a) e seguro(a) para explorar suas emoções, compreender sua história e desenvolver recursos saudáveis para lidar com os desafios do presente.</p>
+                    <a href="#contato" class="btn btn-secondary dark" style="margin-top: 2rem;">Entrar em contato</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABORDAGEM SECTION -->
+        <section id="terapia" class="approach">
+            <div class="container">
+                <div class="approach-header reveal-up">
+                    <h2>Terapia dos Esquemas</h2>
+                    <p>Uma abordagem inovadora e integrativa, desenvolvida para tratar questões emocionais complexas e padrões de comportamento que se repetem ao longo da vida.</p>
+                </div>
+
+                <div class="approach-list">
+                    <div class="approach-item reveal-up">
+                        <span class="approach-num">01</span>
+                        <div class="approach-content">
+                            <h3>Compreensão Profunda</h3>
+                            <p>Identificamos as raízes dos seus padrões de pensamento e comportamento, muitas vezes formados na infância ou adolescência, que continuam causando sofrimento hoje.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="approach-item reveal-up">
+                        <span class="approach-num">02</span>
+                        <div class="approach-content">
+                            <h3>Quebra de Padrões</h3>
+                            <p>Trabalhamos ativamente para interromper ciclos repetitivos negativos, ensinando novas formas mais saudáveis de reagir a situações difíceis e gatilhos emocionais.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="approach-item reveal-up">
+                        <span class="approach-num">03</span>
+                        <div class="approach-content">
+                            <h3>Cura Emocional</h3>
+                            <p>Através de técnicas experienciais e cognitivas, buscamos atender às suas necessidades emocionais que não foram supridas no passado, promovendo alívio e segurança.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="approach-item reveal-up">
+                        <span class="approach-num">04</span>
+                        <div class="approach-content">
+                            <h3>Autonomia e Bem-estar</h3>
+                            <p>O foco final é fortalecer seu "Adulto Saudável", capacitando você a fazer escolhas mais alinhadas com seus valores e a construir relacionamentos mais satisfatórios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATENDIMENTO SECTION -->
+        <section id="atendimento" class="services">
+            <div class="container">
+                <div class="services-header reveal-up">
+                    <h2>Modalidades de Atendimento</h2>
+                    <p>Sessões estruturadas para o seu conforto e conveniência.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-panel panel-online reveal-up stagger-1">
+                        <h3>Terapia Online</h3>
+                        <div class="details">Atendimento para todo o Brasil</div>
+                        <p>Sessões realizadas via plataforma segura de vídeo, garantindo sua privacidade no conforto da sua casa.</p>
+                    </div>
+                    
+                    <div class="service-panel panel-presencial reveal-up stagger-2">
+                        <h3>Terapia Presencial</h3>
+                        <div class="details">Teresina / PI</div>
+                        <p>Um espaço físico acolhedor e preparado especialmente para receber você com total privacidade e conforto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULÁRIO SECTION -->
+        <section id="contato" class="contact">
+            <div class="container contact-grid">
+                <div class="contact-info reveal-up">
+                    <h2>Agendar Primeira Sessão</h2>
+                    <p>Preencha os dados abaixo para iniciar o processo. Entrarei em contato em breve para combinarmos os detalhes.</p>
+                </div>
+
+                <div class="form-wrapper reveal-scale stagger-1">
+                    <!-- Lógica e marcação do formulário intactas -->
+                    <form id="anamnese-form" action="https://formsubmit.co/luizaepereiraguerra@gmail.com" method="POST">
+                        
+                        <input type="hidden" name="_subject" value="Novo Agendamento pelo Site">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="whatsapp">WhatsApp / Telefone</label>
+                            <input type="tel" id="whatsapp" name="whatsapp" class="form-control" required placeholder="(00) 00000-0000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="seu@email.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modalidade">Preferência de Atendimento</label>
+                            <select id="modalidade" name="modalidade" class="form-control" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="Online">Online</option>
+                                <option value="Presencial">Presencial</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensagem">Motivo da busca (Opcional, sinta-se à vontade)</label>
+                            <textarea id="mensagem" name="mensagem" class="form-control" placeholder="Escreva brevemente o que motivou sua busca por terapia..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit-btn">Enviar Solicitação</button>
+                    </form>
+
+                    <div id="form-status" class="form-status"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container reveal-up">
+            <span class="footer-logo">Luiza Guerra</span>
+            <div class="footer-info">
+                Psicóloga Clínica • CRP-21/07023<br>
+                Especialista em Terapia dos Esquemas
+            </div>
+            
+            <div class="footer-links">
+                <a href="https://instagram.com/luizaguerra.psi" target="_blank" rel="noopener">Instagram</a>
+                <a href="#contato">Agendamento</a>
+                <a href="mailto:luizaepereiraguerra@gmail.com">E-mail</a>
+            </div>
+            
+            <div class="copyright">
+                &copy; <script>document.write(new Date().getFullYear())</script> Luiza Guerra. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            /* --- 1. Header Sticky --- */
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }, { passive: true });
+
+            /* --- 2. Menu Mobile Responsivo --- */
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+            const navItems = document.querySelectorAll('.nav-links a');
+
+            function toggleMenu() {
+                mobileToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                body.classList.toggle('menu-open');
+                mobileToggle.setAttribute('aria-expanded', mobileToggle.classList.contains('active'));
+            }
+
+            mobileToggle.addEventListener('click', toggleMenu);
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) toggleMenu();
+                });
+            });
+
+            /* --- 3. Scroll Reveal Animation (Advanced Observer) --- */
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            
+            if (!reduceMotion) {
+                // Seleciona todos os elementos com classes de animação
+                const revealElements = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-fade');
+                
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target); 
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.1, // Dispara logo que 10% do elemento aparece
+                    rootMargin: "0px 0px -50px 0px"
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+                
+                // Dispara imediatamente para elementos que já estão na tela no carregamento (ex: Hero)
+                setTimeout(() => {
+                    document.querySelectorAll('#inicio .reveal-up, #inicio .reveal-scale, #inicio .reveal-fade').forEach(el => {
+                        el.classList.add('is-visible');
+                    });
+                }, 100);
+            }
+
+            /* --- 4. LÓGICA ORIGINAL DO CARROSSEL (Intacta, adicionado clique nos dots) --- */
+            (function(){
+                var imgs = document.querySelectorAll('.about-photo-wrapper img');
+                var dots = document.querySelectorAll('.about-photo-dots .dot');
+                if(!imgs.length) return;
+                var i = 0;
+                var interval;
+                
+                function changeSlide(index) {
+                    imgs[i].classList.remove('active');
+                    dots[i].classList.remove('active');
+                    i = index;
+                    imgs[i].classList.add('active');
+                    dots[i].classList.add('active');
+                }
+                
+                function startCarousel() {
+                    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                    interval = setInterval(function(){
+                        changeSlide((i + 1) % imgs.length);
+                    }, 5000); // Tempo aumentado para um ritmo mais calmo/premium
+                }
+                
+                // Permite clicar nas bolinhas
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        clearInterval(interval);
+                        changeSlide(index);
+                        startCarousel();
+                    });
+                });
+                
+                startCarousel();
+            })();
+
+            /* --- 5. LÓGICA ORIGINAL DO FORMULÁRIO (Intacta) --- */
+            (function(){
+                var form = document.getElementById('anamnese-form');
+                var status = document.getElementById('form-status');
+                if(!form) return;
+                
+                form.addEventListener('submit', function(e){
+                    e.preventDefault();
+                    var btn = form.querySelector('button[type="submit"]');
+                    btn.disabled = true;
+                    btn.textContent = 'Enviando...'; 
+                    
+                    status.className = 'form-status active sending';
+                    status.textContent = 'Processando sua solicitação...';
+                    
+                    var data = new FormData(form);
+                    
+                    fetch('https://formsubmit.co/ajax/luizaepereiraguerra@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json' },
+                        body: data
+                    })
+                    .then(function(res){ return res.json(); })
+                    .then(function(){
+                        form.reset();
+                        form.style.display = 'none';
+                        status.className = 'form-status active success';
+                        status.textContent = 'Formulário enviado com sucesso! Luiza entrará em contato em breve.';
+                    })
+                    .catch(function(err){
+                        btn.disabled = false;
+                        btn.textContent = 'Enviar Solicitação';
+                        status.className = 'form-status active error';
+                        status.textContent = 'Ocorreu um erro. Por favor, tente novamente ou entre em contato via WhatsApp.';
+                        console.error(err);
+                    });
+                });
+            })();
+
+        });
+    </script>
+</body>
+</html>
